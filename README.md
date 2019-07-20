@@ -1,2 +1,2 @@
-# Basic-Algorithms
-Basic algorithms and some data structures
+# Algorithms and Data Structures
+Commonly used algorithms and data structures implemented in c and c++ with easy to understand commented codes
