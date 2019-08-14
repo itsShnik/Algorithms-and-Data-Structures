@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" style="fill:rgb(255,255,255); stroke-width:0; stroke:rgb(0,0,0)" />
+<circle cx="11" cy="68" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="11" cy="68" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="12" y="69" font-size="1" >(11, 68)</text>
+<circle cx="11" cy="42" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="11" cy="42" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="12" y="43" font-size="1" >(11, 42)</text>
+<circle cx="22" cy="58" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="22" cy="58" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="23" y="59" font-size="1" >(22, 58)</text>
+<circle cx="29" cy="2" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="29" cy="2" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="30" y="3" font-size="1" >(29, 2)</text>
+<circle cx="40" cy="26" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="40" cy="26" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="41" y="27" font-size="1" >(40, 26)</text>
+<circle cx="49" cy="21" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="49" cy="21" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="50" y="22" font-size="1" >(49, 21)</text>
+<circle cx="62" cy="27" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="62" cy="27" r="0.707107" stroke="black" stroke-width ="0" fill="#fe83cc" fill-opacity="0.4"/>
+<text x="63" y="28" font-size="1" >(62, 27)</text>
+<circle cx="62" cy="23" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="62" cy="23" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="63" y="24" font-size="1" >(62, 23)</text>
+<circle cx="63" cy="26" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="63" cy="26" r="0.707107" stroke="black" stroke-width ="0" fill="#fe83cc" fill-opacity="0.4"/>
+<text x="64" y="27" font-size="1" >(63, 26)</text>
+<circle cx="67" cy="29" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="67" cy="29" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="68" y="30" font-size="1" >(67, 29)</text>
+<circle cx="67" cy="35" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="67" cy="35" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="68" y="36" font-size="1" >(67, 35)</text>
+<circle cx="69" cy="67" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="69" cy="67" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="70" y="68" font-size="1" >(69, 67)</text>
+<circle cx="72" cy="36" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="72" cy="36" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="73" y="37" font-size="1" >(72, 36)</text>
+<circle cx="77" cy="15" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="77" cy="15" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="78" y="16" font-size="1" >(77, 15)</text>
+<circle cx="82" cy="30" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="82" cy="30" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="83" y="31" font-size="1" >(82, 30)</text>
+<circle cx="83" cy="86" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="83" cy="86" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="84" y="87" font-size="1" >(83, 86)</text>
+<circle cx="86" cy="92" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="86" cy="92" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="87" y="93" font-size="1" >(86, 92)</text>
+<circle cx="90" cy="59" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="90" cy="59" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="91" y="60" font-size="1" >(90, 59)</text>
+<circle cx="93" cy="35" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="93" cy="35" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="94" y="36" font-size="1" >(93, 35)</text>
+<circle cx="93" cy="56" r="0.1" stroke="black" stroke-width ="0" fill="#000000" />
+<circle cx="93" cy="56" r="0.707107" stroke="black" stroke-width ="0" fill="#0066ff" fill-opacity="0.4"/>
+<text x="94" y="57" font-size="1" >(93, 56)</text>
+<title>Bar</title>
+</svg>

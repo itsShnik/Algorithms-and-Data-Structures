@@ -1,76 +1,175 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <bits/stdc++.h> 
+using namespace std; 
 
-typedef struct _point{
-	int x, y;
-}point;
+class Point 
+{ 
+	public: 
+	int x, y; 
+}; 
 
-bool compareX(point p1, point p2){
-	return p1.x < p2.x;
-}
+//global variables to find the absolute minimum
+Point absMinP1, absMinP2;
+float absMinD = FLT_MAX;
 
-bool compareY(point p1, point p2){
-	return p1.y < p2.y;
-}
+int compareX(const void* a, const void* b) 
+{ 
+	Point *p1 = (Point *)a, *p2 = (Point *)b; 
+	return (p1->x - p2->x); 
+} 
 
-void printArray(point P[], int n){
-	for(int i = 0; i< n; i++){
-		cout << P[i].x << " " << P[i].y << endl;
- 	}
-}
+int compareY(const void* a, const void* b) 
+{ 
+	Point *p1 = (Point *)a, *p2 = (Point *)b; 
+	return (p1->y - p2->y); 
+} 
 
-float closest(point P[], int n);
+float dist(Point p1, Point p2) 
+{ 
+	float d =  sqrt( (p1.x - p2.x)*(p1.x - p2.x) + 
+				(p1.y - p2.y)*(p1.y - p2.y) 
+			);
 
-float minDistance(point px[], point py[], int n);
+	if(d < absMinD){
+		absMinD = d;
+		absMinP1.x = p1.x;
+	    absMinP2.x = p2.x;
+		absMinP1.y = p1.y;
+		absMinP2.y = p2.y;	
+	}
+} 
 
-float bruteForce(point p[], int n);
+float bruteForce(Point P[], int n) 
+{ 
+	float min = FLT_MAX; 
+	for (int i = 0; i < n; ++i) 
+		for (int j = i+1; j < n; ++j) 
+			if (dist(P[i], P[j]) < min) 
+				min = dist(P[i], P[j]); 
+	return min; 
+} 
 
-float dist(point p1, point p2);
+float min(float x, float y) 
+{ 
+	return (x < y)? x : y; 
+} 
 
-int main(){
-	point P[] = {{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}}; 
-    int n = sizeof(P) / sizeof(P[0]); 
-    cout << "The smallest distance is " << closest(P, n); 
-    return 0;
-}
 
-float bruteForce(point p[], int n){
-	float min = INT_MAX;
-	for(int i = 0; i< n; i++){
-		for(int j = i + 1; j < n; j++){
-			if(dist(p[i], p[j]) < min){
-				min = dist(p[i], p[j]);
-			}
+float stripClosest(Point strip[], int size, float d) 
+{ 
+	float min = d; // Initialize the minimum distance as d 
+
+	qsort(strip, size, sizeof(Point), compareY); 
+
+	for (int i = 0; i < size; ++i) 
+		for (int j = i+1; j < size && (strip[j].y - strip[i].y) < min; ++j) 
+			if (dist(strip[i],strip[j]) < min) 
+				min = dist(strip[i], strip[j]); 
+
+	return min; 
+} 
+
+float closestUtil(Point P[], int n) 
+{ 
+	if (n <= 3) 
+		return bruteForce(P, n); 
+
+	int mid = n/2; 
+	Point midPoint = P[mid]; 
+
+	float dl = closestUtil(P, mid); 
+	float dr = closestUtil(P + mid, n - mid); 
+
+	float d = min(dl, dr); 
+
+	Point strip[n]; 
+	int j = 0; 
+	for (int i = 0; i < n; i++) 
+		if (abs(P[i].x - midPoint.x) < d) 
+			strip[j] = P[i], j++; 
+
+	return min(d, stripClosest(strip, j, d) ); 
+} 
+
+float closest(Point P[], int n) 
+{ 
+	qsort(P, n, sizeof(Point), compareX); 
+
+	return closestUtil(P, n); 
+} 
+
+void writeToSVGFile(Point P[], int n, float d, int coord){
+	ofstream cout ("draw.svg");
+	//cout.open("draw.svg", ofstream::app);
+	cout<<"<svg xmlns=\"http://www.w3.org/2000/svg\">"<<endl
+	<<"<rect width=\"100\" height=\"100\" style=\"fill:rgb(255,255,255); stroke-width:0; stroke:rgb(0,0,0)\" />"<<endl;
+
+	for(int i = 0; i < n; i++)
+	{
+		if((P[i].x ==  absMinP1.x && P[i].y == absMinP1.y) || (P[i].x == absMinP2.x && P[i].y == absMinP2.y)){
+			cout<< "<circle cx=\"" << P[i].x <<"\" cy=\""<<P[i].y<< "\" r=\""<< .1 << "\" stroke=\"black\" stroke-width =\"" << 0 << "\" fill=\"#000000\" />" << endl << "<circle cx=\"" << P[i].x <<"\" cy=\""<<P[i].y<< "\" r=\""<< d  << "\" stroke=\"black\" stroke-width =\"0\" fill=\"#fe83cc\" fill-opacity=\"0.4\"/>" << endl;
+
+		}else{
+			cout<< "<circle cx=\"" << P[i].x <<"\" cy=\""<<P[i].y<< "\" r=\""<< .1 << "\" stroke=\"black\" stroke-width =\"" << 0 << "\" fill=\"#000000\" />" << endl << "<circle cx=\"" << P[i].x <<"\" cy=\""<<P[i].y<< "\" r=\""<< d  << "\" stroke=\"black\" stroke-width =\"0\" fill=\"#0066ff\" fill-opacity=\"0.4\"/>" << endl;
+		}
+		if ( coord == 1)
+		{
+			cout<<"<text x=\""<<P[i].x+1<<"\" y=\""<<P[i].y+1<<"\" font-size=\""<<1<<"\" >"<<"("<<P[i].x<<", "<<P[i].y<<")"<<"</text>"<<endl;
 		}
 	}
-	return min;
+
+	cout<< "<title>Bar</title>" << endl; 
+	
+	cout<< "</svg>" << endl;
 }
 
-float dist(point p1, point p2){
-	return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
-}
+int main() 
+{ 
+	//change the first line
 
-float closest(point P[], int n){
-	point px[n];
-	point py[n];
+	//take n as input
+	int n;
+	cout << "Enter the number of points" << endl;
+	cin >> n;
+	
+	//input whether to print the points in the file
+	int coord;
+	cout << "Enter 1 if you want to print the coordinates, 0 otherwise" << endl;
+	cin >> coord;
+	//coord = 0 --> no else yes
 
-	for(int i = 0; i< n; i++){
-		px[i] = P[i];
-		py[i] = P[i];
+	Point P[n];
+
+	//generate n random points
+	for(int i = 0; i < n; i++){
+		P[i].x = rand() % 100;
+		P[i].y = rand() % 100;	
 	}
 
-	sort(px, px + n, compareX);
-	sort(py, py + n, compareY);
+	//calculate the closest pair of points and the minimum distance between them
+	float minDist = closest(P, n);
 
-	//printArray(px, n);
-	//printArray(py, n);
-	return minDistance(px, py, n);
-}
+	//write to the svg file
+	writeToSVGFile(P, n, minDist/2, coord);	
+	
+	return 0; 
+} 
 
-float minDistance(point px[], point py[], int n){
-	if(n <= 3){
-		return bruteForce(px, n);
-	}
 
-	 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
